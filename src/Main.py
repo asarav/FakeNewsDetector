@@ -8,7 +8,7 @@ import torch
 
 def findFiles(path): return glob.glob(path)
 
-print(findFiles('data/*.csv'))
+print(findFiles('../data/*.csv'))
 
 import unicodedata
 import string
