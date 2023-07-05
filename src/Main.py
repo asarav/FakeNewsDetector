@@ -24,8 +24,6 @@ def unicodeToAscii(s):
         and c in all_letters
     )
 
-print(unicodeToAscii('Ślusàrski'))
-
 # Build the category_lines dictionary, a list of names per language
 category_lines = {}
 all_categories = []
@@ -35,7 +33,7 @@ def readLines(filename):
     lines = open(filename, encoding='utf-8').read().strip().split('\n')
     return [unicodeToAscii(line) for line in lines]
 
-for filename in findFiles('data/names/*.txt'):
+for filename in findFiles('data/names/*.csv'):
     category = os.path.splitext(os.path.basename(filename))[0]
     all_categories.append(category)
     lines = readLines(filename)
@@ -43,7 +41,7 @@ for filename in findFiles('data/names/*.txt'):
 
 n_categories = len(all_categories)
 
-print(category_lines['Italian'][:5])
+print(category_lines)
 
 # Find letter index from all_letters, e.g. "a" = 0
 def letterToIndex(letter):
